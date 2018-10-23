@@ -1,0 +1,124 @@
+/* elements */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: #000;
+  font-family: Georgia, serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+/* Wrapper */
+
+.Wrapper {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.Wrapper-inner {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/moon.png), url(../img/bg-static.png), url(../img/bg-parallax.png);
+  background-repeat: repeat-x, repeat, repeat;
+  background-position: center bottom, center center, center center;
+  background-size: contain;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.has-deviceOrientation .Wrapper-inner {
+  width: 400vw;
+  height: 200vh;
+  background-size: 300vw, 300vw, 300vw; /* canvas (Wrapper-inner) width minus viewport (Wrapper) width */
+}
+
+body.has-deviceOrientation .Background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-image: url(../img/bg-parallax.png);
+  background-repeat: repeat;
+  background-position: center center;
+  background-size: 300vw;
+}
+
+/* Message - fixed */
+
+.Message {
+  display: inline-block;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 3;
+}
+
+.Message-text {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem 0.5rem;
+  margin: 0;
+}
+
+/* Content - not fixed */
+
+.Content {
+}
+
+.Content-text {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.Content-text--left {
+  position: absolute;
+  left: 25%;
+}
+
+.Content-text--right {
+  position: absolute;
+  right: 25%;
+}
+
+/* debug */
+
+.Debug {
+  display: none;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem;
+  z-index: 3;
+  font-size: 0.75rem;
+  text-align: left;
+}
+
+body.has-deviceOrientation .Debug {
+  display: flex;
+}
+
+.Debug-block {
+  margin: 0;
+}
